@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Friendship Day! 💖</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Floating Hearts Background -->
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="main-title">
+                <span class="heart">💖</span>
+                Happy Friendship Day!
+                <span class="heart">💖</span>
+            </h1>
+            <p class="subtitle">Celebrating the beautiful bond of friendship</p>
+        </header>
+
+        <!-- Friendship Card -->
+        <div class="friendship-card" id="friendshipCard">
+            <div class="card-front" id="cardFront">
+                <div class="card-content">
+                    <div class="friendship-icon">🤝</div>
+                    <h2>Dear Friend</h2>
+                    <p>Click to open your special message</p>
+                    <button class="open-btn" onclick="openCard()">
+                        <i class="fas fa-heart"></i> Open Card
+                    </button>
+                </div>
+            </div>
+            
+            <div class="card-inside" id="cardInside">
+                <div class="inside-content">
+                    <h3>💝 To My Amazing Friend 💝</h3>
+                    <div class="message">
+                        <p>On this special day, I want to thank you for being the wonderful person you are. Your friendship has brought so much joy, laughter, and support into my life.</p>
+                        <p>You've been there through the good times and the bad, always ready to listen, comfort, and celebrate together. Your kindness, understanding, and genuine care make you truly special.</p>
+                        <p>Here's to many more years of friendship, adventures, and beautiful memories together! 🎉</p>
+                    </div>
+                    <div class="friendship-quote">
+                        <i class="fas fa-quote-left"></i>
+                        "A real friend is one who walks in when the rest of the world walks out."
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <button class="close-btn" onclick="closeCard()">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Elements -->
+        <div class="interactive-section">
+            <div class="friendship-stats">
+                <div class="stat-item">
+                    <div class="stat-number" id="friendshipYears">0</div>
+                    <div class="stat-label">Years of Friendship</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="memoriesCount">0</div>
+                    <div class="stat-label">Beautiful Memories</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="laughterCount">0</div>
+                    <div class="stat-label">Moments of Laughter</div>
+                </div>
+            </div>
+
+            <div class="friendship-actions">
+                <button class="action-btn" onclick="sendVirtualHug()">
+                    <i class="fas fa-hands"></i> Send Virtual Hug
+                </button>
+                <button class="action-btn" onclick="shareMemories()">
+                    <i class="fas fa-camera"></i> Share Memories
+                </button>
+                <button class="action-btn" onclick="playFriendshipSong()">
+                    <i class="fas fa-music"></i> Friendship Song
+                </button>
+            </div>
+        </div>
+
+        <!-- Friendship Gallery -->
+        <div class="friendship-gallery">
+            <h3>Our Friendship Journey</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="showMemory(1)">
+                    <div class="memory-placeholder">📸</div>
+                    <p>First Meeting</p>
+                </div>
+                <div class="gallery-item" onclick="showMemory(2)">
+                    <div class="memory-placeholder">🎉</div>
+                    <p>Birthday Celebrations</p>
+                </div>
+                <div class="gallery-item" onclick="showMemory(3)">
+                    <div class="memory-placeholder">🌴</div>
+                    <p>Adventures Together</p>
+                </div>
+                <div class="gallery-item" onclick="showMemory(4)">
+                    <div class="memory-placeholder">☕</div>
+                    <p>Coffee Talks</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Friendship Wishes -->
+        <div class="wishes-section">
+            <h3>Friendship Wishes</h3>
+            <div class="wishes-container">
+                <div class="wish-card">
+                    <i class="fas fa-star"></i>
+                    <p>May our friendship continue to grow stronger with each passing day!</p>
+                </div>
+                <div class="wish-card">
+                    <i class="fas fa-heart"></i>
+                    <p>Thank you for being my rock, my confidant, and my partner in crime!</p>
+                </div>
+                <div class="wish-card">
+                    <i class="fas fa-sun"></i>
+                    <p>You bring sunshine into my life even on the darkest days!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>Made with <i class="fas fa-heart"></i> for you, my dear friend!</p>
+                <div class="social-links">
+                    <button class="social-btn" onclick="shareOnSocial()">
+                        <i class="fas fa-share"></i> Share This Greeting
+                    </button>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Memory Modal -->
+    <div class="memory-modal" id="memoryModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeMemory()">&times;</span>
+            <h3 id="memoryTitle">Beautiful Memory</h3>
+            <div class="memory-content" id="memoryContent">
+                <div class="memory-image">📸</div>
+                <p id="memoryDescription">This is a special memory we shared together...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio Player -->
+    <audio id="friendshipSong" preload="auto">
+        <source src="data:audio/mpeg;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4LjIwLjEwMAAAAAAAAAAAAAAA//tQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWGluZwAAAA8AAAACAAAFbgBtbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1tbW1t//////////////////////////////////////////////////////////////////8AAAAATGF2YzU4LjM1AAAAAAAAAAAAAAAAJAYAAAAAAAAABW4A" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html> 
